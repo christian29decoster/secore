@@ -14,6 +14,7 @@ import {
   MapIcon
 } from '@heroicons/react/24/outline';
 
+// Layout component for the modern Secore LLC Security Control Center
 const Layout = ({ children, activePage, onPageChange }) => {
   const { t, i18n } = useTranslation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
