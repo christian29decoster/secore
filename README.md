@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# Secore LLC - Alarm Broker SaaS System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ein modernes Multi-Tenant Alarm-Broker System für Secore LLC mit Evalink Integration, Drohnenüberwachung und autonomer Security Robotics.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Multi-Tenant Dashboard** - Übersicht aller Mandanten & Datenstreams
+- **Alarm Management** - Echtzeit-Alarmverfolgung und -bearbeitung
+- **Evalink Integration** - Status-Monitoring für alle Clients
+- **Drohnen & Roboter** - Überwachung autonomer Security-Systeme
+- **API Monitoring** - Tracking der API-Calls pro Client
+- **Mehrsprachig** - Deutsch, Englisch, Spanisch
+- **Dark Theme** - Moderne Benutzeroberfläche
+- **Interaktive Charts** - Live-Datenvisualisierung
 
-### `npm start`
+## 📊 Dashboard-Komponenten
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Alarm Dashboard
+- Ø Bearbeitungszeit (Linien-Chart)
+- Alarme nach Typ (Balken-Chart)
+- Alarme nach Status (Horizontal-Balken)
+- Alarme nach Priorität (Donut-Chart)
+- Demo-Alarm auslösen Button
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Client Overview
+- Multi-Tenant Übersicht
+- Aktive Alarme pro Client
+- Drohnen & Roboter Status
+- Evalink Status (OK/Watch/Problem)
+- API-Calls Tracking
 
-### `npm test`
+### 3. SBB Alarm Overview
+- Spezifische SBB Alarmübersicht
+- Aktuelle Alarme & Bearbeitungszeiten
+- Alarm-ID, Typ, Empfangszeit
+- Abschlusszeit & Dauer
+- Status-Tracking
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. Landing Page
+- Secore LLC Branding
+- Digitale Leitstelle & SaaS Security
+- Drohnenüberwachung Features
+- Technologie & Partner (EvaLink, Twilio, Cloud AI)
 
-### `npm run build`
+## 🛠️ Technologie-Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React 18** - Frontend Framework
+- **Chart.js** - Datenvisualisierung
+- **i18next** - Internationalisierung
+- **CSS3** - Styling & Dark Theme
+- **EvaLink** - Alarm-Broker Integration
+- **Twilio** - Kommunikation
+- **Cloud AI** - Künstliche Intelligenz
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Quick Start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+```bash
+# Dependencies installieren
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Development Server starten
+npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Build für Production
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Navigation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Die Webseite verfügt über eine Navigation in der oberen linken Ecke:
+- **🏠 Landing Page** - Hauptseite mit Secore LLC Branding
+- **📊 Alarm Dashboard** - Charts und Statistiken
+- **👥 Client Overview** - Multi-Tenant Übersicht
+- **🚂 SBB Alarms** - SBB-spezifische Alarmübersicht
 
-## Learn More
+## 🌐 Sprachen
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Deutsch** - Standardsprache
+- **English** - Englische Übersetzung
+- **Español** - Spanische Übersetzung (Landing Page)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Responsive Design
 
-### Code Splitting
+Die Webseite ist vollständig responsive und funktioniert auf:
+- Desktop (1920x1080+)
+- Tablet (768px+)
+- Mobile (320px+)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔧 Konfiguration
 
-### Analyzing the Bundle Size
+### Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+REACT_APP_EVALINK_API_KEY=your_evalink_key
+REACT_APP_TWILIO_ACCOUNT_SID=your_twilio_sid
+REACT_APP_TWILIO_AUTH_TOKEN=your_twilio_token
+```
 
-### Making a Progressive Web App
+### API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Das System ist vorbereitet für:
+- EvaLink API Integration
+- Twilio SMS/WhatsApp
+- Cloud AI Services
+- Multi-Tenant Datenbank
 
-### Advanced Configuration
+## 📊 Mock-Daten
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Die Webseite verwendet realistische Mock-Daten für:
+- **SBB**: 4 aktive Alarme, 2 Drohnen, 1 Roboter
+- **FacilityGuard**: 1 aktiver Alarm, 0 Drohnen/Roboter
+- **Müller Security**: 0 aktive Alarme, 1 Drohne, 1 Roboter
+- **GlobalProtect**: 3 aktive Alarme, 1 Drohne, 0 Roboter
 
-### Deployment
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Vercel (Empfohlen)
 
-### `npm run build` fails to minify
+1. **Repository verbinden**
+   ```bash
+   git remote add origin https://github.com/christian29decoster/secore.git
+   git push -u origin main
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. **Vercel Import**
+   - Gehen Sie zu vercel.com
+   - Importieren Sie das Repository
+   - Framework: React
+   - Build Command: `npm run build`
+   - Output Directory: `build`
+
+### GitHub Pages
+
+```bash
+npm run build
+npm run deploy
+```
+
+## 📞 Support
+
+Für Fragen oder Support kontaktieren Sie das Secore LLC Development Team.
+
+---
+
+**Secore LLC** - Cybersecurity in your pocket 🛡️

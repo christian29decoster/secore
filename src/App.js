@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Layout from './components/Layout';
+import Dashboard from './components/Dashboard';
+import AlarmMonitor from './components/AlarmMonitor';
+import VideoStreams from './components/VideoStreams';
+import Clients from './components/Clients';
+import Analytics from './components/Analytics';
+import Billing from './components/Billing';
+import './i18n';
 
 function App() {
+  const { t } = useTranslation();
+  const [currentPage, setCurrentPage] = useState('dashboard');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'dashboard':
+        return <Dashboard />;
+      case 'alarms':
+        return <AlarmMonitor />;
+      case 'video':
+        return <VideoStreams />;
+      case 'clients':
+        return <Clients />;
+      case 'analytics':
+        return <Analytics />;
+      case 'billing':
+        return <Billing />;
+      default:
+        return <Dashboard />;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout activePage={currentPage}>
+      {renderPage()}
+    </Layout>
   );
 }
 
