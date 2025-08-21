@@ -8,6 +8,7 @@ import Clients from './components/Clients';
 import Analytics from './components/Analytics';
 import Billing from './components/Billing';
 import './i18n';
+import './App.css';
 
 function App() {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ function App() {
   };
 
   return (
-    <Layout activePage={currentPage}>
+    <Layout activePage={currentPage} onPageChange={setCurrentPage}>
       {renderPage()}
     </Layout>
   );

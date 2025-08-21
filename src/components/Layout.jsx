@@ -12,24 +12,29 @@ import {
   LanguageIcon
 } from '@heroicons/react/24/outline';
 
-const Layout = ({ children, activePage }) => {
+const Layout = ({ children, activePage, onPageChange }) => {
   const { t, i18n } = useTranslation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [language, setLanguage] = useState(i18n.language);
 
   const navigation = [
-    { name: t('Dashboard'), href: '/', icon: HomeIcon, current: activePage === 'dashboard' },
-    { name: t('Alarm Monitor'), href: '/alarms', icon: BellIcon, current: activePage === 'alarms' },
-    { name: t('Video Streams'), href: '/video', icon: VideoCameraIcon, current: activePage === 'video' },
-    { name: t('Clients'), href: '/clients', icon: UsersIcon, current: activePage === 'clients' },
-    { name: t('Analytics'), href: '/analytics', icon: ChartBarIcon, current: activePage === 'analytics' },
-    { name: t('Billing'), href: '/billing', icon: CreditCardIcon, current: activePage === 'billing' },
+    { name: t('Dashboard'), id: 'dashboard', icon: HomeIcon, current: activePage === 'dashboard' },
+    { name: t('Alarm Monitor'), id: 'alarms', icon: BellIcon, current: activePage === 'alarms' },
+    { name: t('Video Streams'), id: 'video', icon: VideoCameraIcon, current: activePage === 'video' },
+    { name: t('Clients'), id: 'clients', icon: UsersIcon, current: activePage === 'clients' },
+    { name: t('Analytics'), id: 'analytics', icon: ChartBarIcon, current: activePage === 'analytics' },
+    { name: t('Billing'), id: 'billing', icon: CreditCardIcon, current: activePage === 'billing' },
   ];
 
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'de' : 'en';
     setLanguage(newLang);
     i18n.changeLanguage(newLang);
+  };
+
+  const handleNavigation = (pageId) => {
+    onPageChange(pageId);
+    setSidebarOpen(false);
   };
 
   return (
@@ -54,10 +59,10 @@ const Layout = ({ children, activePage }) => {
           <div className="flex-1 flex flex-col overflow-y-auto">
             <nav className="flex-1 px-2 py-4 space-y-1">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
+                <button
+                  key={item.id}
+                  onClick={() => handleNavigation(item.id)}
+                  className={`group flex items-center w-full px-2 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
                     item.current
                       ? 'bg-cyan-600 text-white'
                       : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -69,7 +74,7 @@ const Layout = ({ children, activePage }) => {
                     }`}
                   />
                   {item.name}
-                </a>
+                </button>
               ))}
             </nav>
             
@@ -88,52 +93,54 @@ const Layout = ({ children, activePage }) => {
       </div>
 
       {/* Mobile menu */}
-      <div className="md:hidden">
-        <div className="fixed inset-0 flex z-40">
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
-          <div className="relative flex-1 flex flex-col max-w-xs w-full bg-gray-800">
-            <div className="absolute top-0 right-0 -mr-12 pt-2">
-              <button
-                type="button"
-                className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                onClick={() => setSidebarOpen(false)}
-              >
-                <XMarkIcon className="h-6 w-6 text-white" />
-              </button>
-            </div>
-            <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-              <div className="flex-shrink-0 flex items-center px-4">
-                <div className="h-8 w-8 bg-cyan-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">S</span>
-                </div>
-                <div className="ml-3">
-                  <h1 className="text-white text-lg font-semibold">Secore LLC</h1>
-                </div>
+      {sidebarOpen && (
+        <div className="md:hidden">
+          <div className="fixed inset-0 flex z-40">
+            <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+            <div className="relative flex-1 flex flex-col max-w-xs w-full bg-gray-800">
+              <div className="absolute top-0 right-0 -mr-12 pt-2">
+                <button
+                  type="button"
+                  className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <XMarkIcon className="h-6 w-6 text-white" />
+                </button>
               </div>
-              <nav className="mt-5 px-2 space-y-1">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`group flex items-center px-2 py-2 text-base font-medium rounded-md ${
-                      item.current
-                        ? 'bg-cyan-600 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                    }`}
-                  >
-                    <item.icon
-                      className={`mr-4 flex-shrink-0 h-6 w-6 ${
-                        item.current ? 'text-white' : 'text-gray-400 group-hover:text-white'
+              <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+                <div className="flex-shrink-0 flex items-center px-4">
+                  <div className="h-8 w-8 bg-cyan-500 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">S</span>
+                  </div>
+                  <div className="ml-3">
+                    <h1 className="text-white text-lg font-semibold">Secore LLC</h1>
+                  </div>
+                </div>
+                <nav className="mt-5 px-2 space-y-1">
+                  {navigation.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleNavigation(item.id)}
+                      className={`group flex items-center w-full px-2 py-2 text-base font-medium rounded-md ${
+                        item.current
+                          ? 'bg-cyan-600 text-white'
+                          : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                       }`}
-                    />
-                    {item.name}
-                  </a>
-                ))}
-              </nav>
+                    >
+                      <item.icon
+                        className={`mr-4 flex-shrink-0 h-6 w-6 ${
+                          item.current ? 'text-white' : 'text-gray-400 group-hover:text-white'
+                        }`}
+                      />
+                      {item.name}
+                    </button>
+                  ))}
+                </nav>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main content */}
       <div className="md:pl-64 flex flex-col flex-1">
