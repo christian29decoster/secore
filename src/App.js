@@ -7,6 +7,7 @@ import VideoStreams from './components/VideoStreams';
 import Clients from './components/Clients';
 import Analytics from './components/Analytics';
 import Billing from './components/Billing';
+import LiveMap from './components/LiveMap';
 import './i18n';
 import './App.css';
 
@@ -28,6 +29,8 @@ function App() {
         return <Analytics />;
       case 'billing':
         return <Billing />;
+      case 'map':
+        return <LiveMap />;
       default:
         return <Dashboard />;
     }

@@ -7,6 +7,7 @@ const resources = {
       // Navigation
       'Dashboard': 'Dashboard',
       'Alarm Monitor': 'Alarm Monitor',
+      'Live Map': 'Live Map',
       'Video Streams': 'Video Streams',
       'Clients': 'Clients',
       'Analytics': 'Analytics',
@@ -23,6 +24,18 @@ const resources = {
       'Weekly Alarm Overview': 'Weekly Alarm Overview',
       'Total Alarms': 'Total Alarms',
       'Resolved': 'Resolved',
+      
+      // Live Map
+      'Real-time monitoring of security personnel and alarm locations': 'Real-time monitoring of security personnel and alarm locations',
+      'Live Updates': 'Live Updates',
+      'Live Status': 'Live Status',
+      'Active Guards': 'Active Guards',
+      'Active Alarms': 'Active Alarms',
+      'Critical': 'Critical',
+      'Legend': 'Legend',
+      'Security Guards': 'Security Guards',
+      'Active Alarms': 'Active Alarms',
+      'Critical Alarms': 'Critical Alarms',
       
       // Alarm Monitor
       'Real-time alarm tracking and management': 'Real-time alarm tracking and management',
@@ -141,6 +154,7 @@ const resources = {
       // Navigation
       'Dashboard': 'Dashboard',
       'Alarm Monitor': 'Alarm-Monitor',
+      'Live Map': 'Live-Karte',
       'Video Streams': 'Video-Streams',
       'Clients': 'Kunden',
       'Analytics': 'Analytik',
@@ -157,6 +171,18 @@ const resources = {
       'Weekly Alarm Overview': 'Wöchentliche Alarmübersicht',
       'Total Alarms': 'Gesamte Alarme',
       'Resolved': 'Gelöst',
+      
+      // Live Map
+      'Real-time monitoring of security personnel and alarm locations': 'Echtzeit-Überwachung von Sicherheitspersonal und Alarmstandorten',
+      'Live Updates': 'Live-Updates',
+      'Live Status': 'Live-Status',
+      'Active Guards': 'Aktive Wachen',
+      'Active Alarms': 'Aktive Alarme',
+      'Critical': 'Kritisch',
+      'Legend': 'Legende',
+      'Security Guards': 'Sicherheitswachen',
+      'Active Alarms': 'Aktive Alarme',
+      'Critical Alarms': 'Kritische Alarme',
       
       // Alarm Monitor
       'Real-time alarm tracking and management': 'Echtzeit-Alarmverfolgung und -verwaltung',
