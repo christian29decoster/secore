@@ -11,6 +11,7 @@ import LiveMap from './components/LiveMap';
 import './i18n';
 import './App.css';
 
+// Secore LLC Security Control Center - Version 2.0
 function App() {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState('dashboard');
